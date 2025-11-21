@@ -6,7 +6,7 @@ def menu_principal():
 
     while True:
         print("\n")
-        print("MENU PRINCIPAL (SIMPLE)") 
+        print("MENU PRINCIPAL") 
         print("\n")
         print("1. Registrar nuevo cliente")
         print("2. Solicitar turno")
@@ -26,7 +26,7 @@ def menu_principal():
             if opcion == '2':
                 print("\nSOLICITAR TURNO")
                 gestor.registrar_turno(Cliente(input("Nombre: ").strip(), input("Telefono: ").strip()), 
-                                       input("Fecha (DD/MM/AAAA): ").strip() + " " + input("Hora (HH:MM): ").strip(),
+                                       input("Fecha (dd/mm/aaaa): ").strip() + " " + input("Hora (hh:mm): ").strip(),
                                        input("Servicio: ").strip())
 
             else:
@@ -37,9 +37,9 @@ def menu_principal():
                     if opcion == '4':
                         print("\nBUSCAR TURNO")
                         
-                        nom = input("Nombre Cliente: ").strip()
-                        fec = input("Fecha ORIGINAL (DD/MM/AAAA): ").strip()
-                        hor = input("Hora ORIGINAL (HH:MM): ").strip()
+                        nom = input("Nombre cliente: ").strip()
+                        fec = input("Fecha original (dd/mm/aaaa): ").strip()
+                        hor = input("Hora original (hh:mm): ").strip()
                         fecha_hora_original_str = f"{fec} {hor}"
                         
                         turno_id = gestor.buscar_id_por_datos(nom, fecha_hora_original_str)
@@ -53,7 +53,7 @@ def menu_principal():
                         if accion == 'm':
                             print("\nMODIFICAR")
                             gestor.modificar_o_cancelar(turno_id, 'm', 
-                                input("NUEVA Fecha (DD/MM/YYYY): ").strip() + " " + input("NUEVA Hora (HH:MM): ").strip())
+                                input("Nueva fecha (dd/mm/aaaa): ").strip() + " " + input("Nueva hora (hh:mm): ").strip())
                         
                         elif accion == 'c':
                             gestor.modificar_o_cancelar(turno_id, 'c')
