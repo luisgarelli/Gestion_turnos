@@ -68,16 +68,16 @@ class GestorTurnos:
             print("Error: Verifique el formato de fecha y hora.")#en la opcion 2 si esta mal escrita la
             return False                                         #fecha y hora devuelve este mensaje
 
-        turnos_list = list(self.turnos.values())
+        turnos_list = list(self.turnos.values())#busca y lista todos los turnos para comparar
         i = 0
-        while i < len(turnos_list):
-            if turnos_list[i].fecha_hora == nuevo_turno.fecha_hora:
-                print("Error: Horario ocupado.")
+        while i < len(turnos_list):# el contador para iterar mientras el indice sea menor al numero de turnos
+            if turnos_list[i].fecha_hora == nuevo_turno.fecha_hora:# si el horario esta ocupado
+                print("Error: Horario ocupado.")#evita superposicion y devuelve el mensaje
                 return False
-            i += 1
-        
-        self.turnos[nuevo_turno.id] = nuevo_turno
-        self._guardar_datos()
+            i += 1#incremente en 1 cada ciclo
+        #mientras no haya colision, ejecuta lo siguiente
+        self.turnos[nuevo_turno.id] = nuevo_turno#guarda el nuevo turno en self.turnos
+        self._guardar_datos()#con este metodo se le da persistencia a los datos
         print(f"Se creó el turno para {cliente.nombre}.")
         return True
 
@@ -106,9 +106,9 @@ class GestorTurnos:
                 print("Error: Formato de fecha y hora invalido.")
                 return
             
+            ######superposicion de turnos######
             turnos_list = list(self.turnos.values())
             i = 0
-            #superposicion de turnos
             while i < len(turnos_list): #Compara dentro de la memoria con los turnos cargados
                 t = turnos_list[i]
                 if t.id != id_turno and t.fecha_hora == nueva_fecha_hora:

@@ -40,9 +40,9 @@ def menu_principal():
                         nom = input("Nombre cliente: ").strip()
                         fec = input("Fecha original (dd/mm/aaaa): ").strip()
                         hor = input("Hora original (hh:mm): ").strip()
-                        fecha_hora_original_str = f"{fec} {hor}"
+                        fecha_hora_original_str = f"{fec} {hor}"#contiene el turno guardado a modificar o cancelar
                         
-                        turno_id = gestor.buscar_id_por_datos(nom, fecha_hora_original_str)
+                        turno_id = gestor.buscar_id_por_datos(nom, fecha_hora_original_str)#busca el turno por nombre, fecha y hora
                         
                         if not turno_id:
                             print("Turno no encontrado")
